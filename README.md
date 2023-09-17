@@ -18,6 +18,6 @@ To use the bot, follow these steps:
 
 ## After Running on Target
 
-You will receive the log file every 200 keyboard presses.
+You will receive the log file every day at 11.30 a.m.
 
 ![Log File](logszip.png)
