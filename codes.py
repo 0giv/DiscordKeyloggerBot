@@ -3,8 +3,9 @@ import requests
 import zipfile
 from os import path
 import datetime
+import VenomBot
 
-webhook = "WEBHOOK HERE"
+webhook = VenomBot.webhookforlogs
 
 
 scheduled_hour = 11
