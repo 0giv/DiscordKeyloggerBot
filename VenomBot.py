@@ -6,8 +6,8 @@ from time import sleep
 from os import system, remove
 from discord import Permissions
 
-token = "MTEzNjIyMjE1NTk2NTc0MzE5NQ.GB1LPg.sNYiq1OU1SFV6_EemcLBFYzDQR-6RwxLfoy1s4"
-webhookforlogs = "https://discord.com/api/webhooks/1188181114871885955/Gm-l3Mur2M-8_sHT4I9l4Mfmn-6wzR8jihHNdelwaZzWJe0Psl3GxrkgXZzSKlv7Je4x"
+token = "BOT TOKEN"
+webhookforlogs = "WEBHOOK"
 intents = discord.Intents.default()
 intents.message_content = True
 
